@@ -1,0 +1,29 @@
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.movSelector {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 8px black solid;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    &--selected{
+        border-color: red;
+    }
+
+    &:first-child {
+        left: calc(50% - 100px)
+    }
+
+    &:last-child {
+        left: calc(50% + 100px)
+    }
+}
