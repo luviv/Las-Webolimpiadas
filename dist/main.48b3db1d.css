@@ -4,25 +4,45 @@ main {
   height: 100%;
 }
 
-.movSelector {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border: 8px black solid;
-  border-radius: 50px;
+div.movSelector {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
 }
-.movSelector--selected {
+div.movSelector--selected {
   border-color: red;
 }
-.movSelector:first-child {
+div.movSelector:first-child {
   left: calc(50% - 100px);
 }
-.movSelector:last-child {
+div.movSelector:last-child {
   left: calc(50% + 100px);
+}
+
+#inventario div:nth-child(3n-2) {
+  left: calc(50% - 100px);
+}
+#inventario div:nth-child(3n) {
+  left: calc(50% + 100px);
+}
+
+.squeareInv {
+  top: 60%;
+  left: 50%;
+  pointer-events: none;
+}
+
+.circleInv {
+  top: 40%;
+  left: 50%;
+}
+.circleInv--green {
+  background-color: #8ed629;
+}
+.circleInv--violet {
+  background-color: #871fb8;
+}
+.circleInv--orange {
+  background-color: #e8821c;
 }
 
 * {
@@ -33,6 +53,24 @@ main {
 body {
   width: 100vw;
   height: 100vh;
+}
+
+.circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 8px black solid;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.square {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 8px black solid;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=/main.48b3db1d.css.map */

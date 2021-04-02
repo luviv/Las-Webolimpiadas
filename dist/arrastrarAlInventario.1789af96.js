@@ -117,9 +117,127 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/main.js":[function(require,module,exports) {
+})({"scripts/classes/bolitaInventario.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var BolitaInventario =
+/*#__PURE__*/
+function () {
+  function BolitaInventario(element, x, y) {
+    _classCallCheck(this, BolitaInventario);
+
+    this.element = element;
+    this.selected = false;
+    this.x = x;
+    this.y = y;
+  }
+
+  _createClass(BolitaInventario, [{
+    key: "updatePosition",
+    value: function updatePosition() {
+      this.element.style.top = this.y + 'px';
+      this.element.style.left = this.x + 'px';
+    }
+  }, {
+    key: "getElement",
+    value: function getElement() {
+      return this.element;
+    }
+  }, {
+    key: "getX",
+    value: function getX() {
+      return this.x;
+    }
+  }, {
+    key: "setX",
+    value: function setX(x) {
+      this.x = x;
+    }
+  }, {
+    key: "getY",
+    value: function getY() {
+      return this.y;
+    }
+  }, {
+    key: "setY",
+    value: function setY(y) {
+      this.y = y;
+    }
+  }, {
+    key: "isSelected",
+    value: function isSelected() {
+      return this.selected;
+    }
+  }, {
+    key: "setSelected",
+    value: function setSelected(selected) {
+      this.selected = selected;
+    }
+  }]);
+
+  return BolitaInventario;
+}();
+
+var _default = BolitaInventario;
+exports.default = _default;
+},{}],"scripts/pages/arrastrarAlInventario.js":[function(require,module,exports) {
+"use strict";
+
+var _bolitaInventario = _interopRequireDefault(require("../classes/bolitaInventario"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener('load', function () {
+  var ballsElements = document.querySelectorAll('.circleInv');
+  var balls = [];
+  ballsElements.forEach(function (ballElement, index) {
+    var newBall = new _bolitaInventario.default(ballElement, (index - 1) * 100, 0);
+    balls.push(newBall);
+  });
+  var offsetX = 0;
+  var offsetY = 0;
+  balls.forEach(function (ball) {
+    var ballElement = ball.getElement();
+    ballElement.addEventListener('mousedown', function (event) {
+      balls.forEach(function (ball) {
+        ball.setSelected(false);
+      });
+      ball.setSelected(true);
+      offsetX = event.offsetX + 8;
+      offsetY = event.offsetY + 8;
+    });
+  });
+  document.addEventListener('mousemove', function (event) {
+    balls.forEach(function (ball) {
+      if (ball.isSelected()) {
+        var x = event.clientX - (offsetX - ball.getElement().offsetWidth / 2);
+        var y = event.clientY - (offsetY - ball.getElement().offsetHeight / 2);
+        console.log(event);
+        ball.setX(x);
+        ball.setY(y);
+        ball.updatePosition();
+      }
+    });
+  });
+  document.addEventListener('mouseup', function (event) {
+    balls.forEach(function (ball) {
+      ball.setSelected(false);
+    });
+    ball.setSelected(true);
+  });
+});
+},{"../classes/bolitaInventario":"scripts/classes/bolitaInventario.js"}],"C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +265,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54931" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49782" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -322,5 +440,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/main.js"], null)
-//# sourceMappingURL=/main.d8ebb8d6.js.map
+},{}]},{},["C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/pages/arrastrarAlInventario.js"], null)
+//# sourceMappingURL=/arrastrarAlInventario.1789af96.js.map

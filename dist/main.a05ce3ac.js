@@ -117,82 +117,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/bolitaMovSelector.js":[function(require,module,exports) {
-"use strict";
+})({"scripts/pages/main.js":[function(require,module,exports) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var BolitaMovSelector =
-/*#__PURE__*/
-function () {
-  function BolitaMovSelector(element) {
-    _classCallCheck(this, BolitaMovSelector);
-
-    this.element = element;
-    this.selected = false;
-  }
-
-  _createClass(BolitaMovSelector, [{
-    key: "getElement",
-    value: function getElement() {
-      return this.element;
-    }
-  }, {
-    key: "isSelected",
-    value: function isSelected() {
-      return this.selected;
-    }
-  }, {
-    key: "setSelected",
-    value: function setSelected(selected) {
-      this.selected = selected;
-    }
-  }]);
-
-  return BolitaMovSelector;
-}();
-
-var _default = BolitaMovSelector;
-exports.default = _default;
-},{}],"scripts/movimientoSelector.js":[function(require,module,exports) {
-"use strict";
-
-var _bolitaMovSelector = _interopRequireDefault(require("./bolitaMovSelector"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-window.addEventListener('load', function () {
-  var selectors = document.querySelectorAll('.movSelector');
-  var balls = [];
-  selectors.forEach(function (selector) {
-    var ball = new _bolitaMovSelector.default(selector);
-    balls.push(ball);
-  });
-  balls.forEach(function (ball) {
-    var ballElement = ball.getElement();
-    ballElement.addEventListener('click', function () {
-      balls.forEach(function (ball) {
-        ball.setSelected(false);
-        ball.getElement().classList.remove('movSelector--selected');
-      });
-      ball.setSelected(true);
-      ballElement.classList.add('movSelector--selected');
-    });
-    console.log(selectors);
-    console.log(balls);
-  });
-  console.log(selectors);
-});
-},{"./bolitaMovSelector":"scripts/bolitaMovSelector.js"}],"C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -220,7 +147,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54931" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49743" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -395,5 +322,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/movimientoSelector.js"], null)
-//# sourceMappingURL=/movimientoSelector.007a8d44.js.map
+},{}]},{},["C:/Users/home/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/pages/main.js"], null)
+//# sourceMappingURL=/main.a05ce3ac.js.map

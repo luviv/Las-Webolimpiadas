@@ -1,4 +1,4 @@
-import BolitaMovSelector from './bolitaMovSelector';
+import BolitaMovSelector from '../classes/bolitaMovSelector';
 
 window.addEventListener('load', () => {
     const selectors = document.querySelectorAll('.movSelector');
